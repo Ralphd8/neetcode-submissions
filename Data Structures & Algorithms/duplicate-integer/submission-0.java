@@ -1,0 +1,21 @@
+class Solution {
+    public boolean hasDuplicate(int[] nums) {
+        HashMap<Integer,Integer> map = new HashMap<>();
+		 for (int i =0 ;i<nums.length;i++) {
+			 if(map.containsKey(nums[i])) {
+				 int qty = map.get(nums[i]);
+				 qty++;
+				 map.put(nums[i],qty);
+			 }
+			 else {
+				 map.put(nums[i],1);
+			 }
+		 }
+		 for (Integer i : map.keySet()) {
+			 if(map.get(i)>1) {
+				 return true;
+			 }
+		 }
+		 return false;
+    }
+}
